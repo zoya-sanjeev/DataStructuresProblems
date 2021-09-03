@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class PrimeNumber {
 	
@@ -10,13 +11,9 @@ public class PrimeNumber {
 			for(int index=2; index<=numberToCheck/2; index++) {
 				if(numberToCheck%index==0) 
 					return false;
-				
-				
 			}
 			return true;
-		}
-			 
-	      
+		}      
 	}  
 	
 	public static int[][]  primeNumbers(int start, int end) {
@@ -40,6 +37,10 @@ public class PrimeNumber {
 			System.out.println();
 		}
 	}
+	
+	
+			
+	
 
 	public static void main(String[] args) {
 		int[][] primeArray=primeNumbers(0, 1000);
