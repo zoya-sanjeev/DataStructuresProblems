@@ -53,7 +53,7 @@ public class PrimeNumber {
 			return false;
 	}
 	
-	static void anagram() {
+	static void anagramStack() {
 		int[] primes=new int[200];
 		int index=0;
 		MyStack<Integer> stack=new MyStack<>();
@@ -76,12 +76,37 @@ public class PrimeNumber {
 		stack.popAll();
 		
 	}
+	static void anagramQueue() {
+		
+		int[] primes=new int[200];
+		int index=0;
+		MyQueue<Integer> queue=new MyQueue<>();
+		for(int start=0;start<=1000;start++)
+			if(primeOrNot(start))
+				primes[index++]=start;
+		
+		for(int i=0;i<primes.length;i++) {
+			for(int j=i+1;j<primes.length-1;j++) {
+				if(primes[i]!=0) {
+					if(checkAnagram(primes[i]+"", primes[j]+"")) {
+						Node<Integer> node1=new Node<>(primes[i]);
+						Node<Integer> node2=new Node<>(primes[j]);
+						queue.enqueue(node1);
+						queue.enqueue(node2);
+					}
+				}
+			}
+		}
+		queue.printQueue();
+		
+	}
 	
 
 	public static void main(String[] args) {
 		int[][] primeArray=primeNumbers(0, 1000);
 		printPrimeNumbers(primeArray);
-		anagram();
+		anagramStack();
+		anagramQueue();
 
 	}
 
